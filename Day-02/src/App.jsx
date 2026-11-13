@@ -32,17 +32,22 @@ const App = () => {
   return (
     <>
       <NavBar></NavBar>
-      <h1>Hello World</h1>
-      {/* reusable components */}
-      {items.map((item) => {
-        return (
-          <CardComponent
-            key={item.id}
-            title={item.name}
-            description={item.description}
-          />
-        );
-      })}
+      <main className="container">
+        <h1 className="title">Hello World</h1>
+        <p className="subtitle">Reusable components rendered from a list</p>
+        <div className="card-grid">
+          {/* reusable components */}
+          {items.map((item) => {
+            return (
+              <CardComponent
+                key={item.id}
+                title={item.name}
+                description={item.description}
+              />
+            );
+          })}
+        </div>
+      </main>
     </>
   );
 };

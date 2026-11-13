@@ -1,4 +1,8 @@
 fileignoreconfig:
 - filename: Day-01/package-lock.json
   checksum: e2fd7dc1bdd7ac540e59b3a29b3a9b2d85625f311c92996cf660e7d8363fedf2
+- filename: Day-02/package-lock.json
+  checksum: 1bd5037068e396915ecd470271f003fb1d0bff4e8f1615594d167cc1d4db6084
+- filename: Day-02/src/App.jsx
+  checksum: d1fa53f058a9e95a80271252db62712284c28ef020a8cff2edad52eae0ee2b8b
 version: "1.0"
