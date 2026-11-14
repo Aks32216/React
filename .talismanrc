@@ -7,4 +7,6 @@ fileignoreconfig:
   checksum: d1fa53f058a9e95a80271252db62712284c28ef020a8cff2edad52eae0ee2b8b
 - filename: Day-03/package-lock.json
   checksum: 5fbf8eb0765e4aabdeef598e5b362e2db147b41c4273f8831e701ca5d021dfa1
+- filename: Day-03/src/Components/TodoApp.jsx
+  checksum: ddf06d6a250feeb94a82ac12412c4a89dca9b453b7ded1a0290ac4e6e05c5367
 version: "1.0"

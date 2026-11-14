@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const Counter = () => {
   // Approach 1: a plain variable.
@@ -19,16 +19,28 @@ const Counter = () => {
   const [count, setCount] = React.useState(0);
 
   function increment() {
-    setCount(count + 1);
+    setCount((count) => count + 1);
+  }
+
+  function decrement() {
+    setCount((count) => count - 1);
+  }
+
+  function reset() {
+    setCount(0);
   }
 
   return (
     <section className="counter">
       <p className="label">Counter</p>
       <p className="display">{String(count).padStart(3, "0")}</p>
-      <button onClick={increment}>Increment</button>
+      <div className="controls">
+        <button className="btn btn-up" onClick={increment}>Increment</button>
+      <button className="btn btn-down" onClick={decrement}>Decrement</button>
+      <button className="btn btn-reset" onClick={reset}>Reset</button>
+      </div>
     </section>
   );
-}
+};
 
-export default Counter
+export default Counter;
