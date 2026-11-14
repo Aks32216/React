@@ -1,0 +1,272 @@
+/* Day 3 practice look: flip-clock pedometer. Charcoal body, split-flap tiles, signal orange. */
+:root {
+  --bg: #e9e4da;
+  --case: #26282b;
+  --tile: #f5f2ea;
+  --tile-dark: #d8d3c5;
+  --orange: #ff5a1f;
+  --grey: #8d9096;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  padding: 24px;
+  background: var(--bg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+  background-size: 100% 6px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.page {
+  width: min(420px, 100%);
+  margin: 4vh auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.pedo {
+  width: 100%;
+  padding: 26px 24px 28px;
+  color: var(--tile);
+  background: var(--case);
+  border-radius: 22px;
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.12),
+    0 3px 0 #111,
+    0 28px 40px rgba(0, 0, 0, 0.3);
+}
+
+.pedo-title,
+.pedo-hint {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+.pedo-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.pedo-title::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: var(--orange);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--orange);
+}
+
+/* Split-flap tiles */
+.flip {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.flip-tile {
+  position: relative;
+  flex: 1;
+  max-width: 82px;
+  padding: 14px 0 10px;
+  text-align: center;
+  font-size: clamp(3rem, 14vw, 4.6rem);
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: #1a1b1d;
+  background: linear-gradient(to bottom, var(--tile) 50%, var(--tile-dark) 50%);
+  border-radius: 8px;
+  box-shadow: 0 4px 0 #0c0c0d;
+}
+
+/* the hinge line across the middle */
+.flip-tile::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 3px;
+  transform: translateY(-50%);
+  background: var(--case);
+}
+
+.pedo-controls {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 14px;
+  margin: 26px 0 24px;
+}
+
+.round {
+  padding: 16px 0;
+  font: inherit;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--tile);
+  background: #3a3d41;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 5px 0 #111;
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.15s ease;
+}
+
+.round-plus {
+  color: #fff;
+  background: var(--orange);
+  box-shadow: 0 5px 0 #a8330a;
+}
+
+.round:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+.round:active:not(:disabled) {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 #111;
+}
+
+.round:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.chips {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.chip {
+  flex: 1;
+  padding: 10px 0;
+  font: inherit;
+  font-weight: 700;
+  color: var(--grey);
+  background: transparent;
+  border: 2px solid #44474c;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.chip:hover {
+  color: var(--tile);
+  border-color: var(--grey);
+}
+
+.chip.is-active {
+  color: var(--orange);
+  border-color: var(--orange);
+}
+
+button:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .round,
+  .chip {
+    transition: none;
+  }
+}
+
+/* FAQ */
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.faq-title {
+  margin-bottom: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #6d6f73;
+}
+
+.faq-item {
+  overflow: hidden;
+  background: var(--tile);
+  border: 2px solid var(--case);
+  border-radius: 14px;
+  box-shadow: 0 4px 0 var(--case);
+  transition: box-shadow 0.15s ease;
+}
+
+.faq-item.is-open {
+  box-shadow: 0 4px 0 var(--orange);
+  border-color: var(--case);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  text-align: left;
+  color: var(--case);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.faq-question:hover .faq-icon {
+  background: var(--orange);
+}
+
+.faq-icon {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: var(--tile);
+  background: var(--case);
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+
+.faq-item.is-open .faq-icon {
+  background: var(--orange);
+}
+
+.faq-answer {
+  margin: 0 16px 16px 58px;
+  padding-top: 12px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #44474c;
+  border-top: 2px dashed var(--tile-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-item,
+  .faq-icon {
+    transition: none;
+  }
+}
