@@ -36,7 +36,7 @@ const App = () => {
         <h1 className="title">Hello World</h1>
         <p className="subtitle">Reusable components rendered from a list</p>
         <div className="card-grid">
-          {/* reusable components */}
+          {/* One reusable CardComponent per item. The key lets React track each card between renders. */}
           {items.map((item) => {
             return (
               <CardComponent

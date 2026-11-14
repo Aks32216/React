@@ -5,4 +5,6 @@ fileignoreconfig:
   checksum: 1bd5037068e396915ecd470271f003fb1d0bff4e8f1615594d167cc1d4db6084
 - filename: Day-02/src/App.jsx
   checksum: d1fa53f058a9e95a80271252db62712284c28ef020a8cff2edad52eae0ee2b8b
+- filename: Day-03/package-lock.json
+  checksum: 5fbf8eb0765e4aabdeef598e5b362e2db147b41c4273f8831e701ca5d021dfa1
 version: "1.0"
