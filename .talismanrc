@@ -13,4 +13,6 @@ fileignoreconfig:
   checksum: 90f14324179f4b2ebf19c8e94b7f2ceaacea1fcb340129cc793c2b9ccea1d3de
 - filename: Day-03-practice/src/App.jsx
   checksum: 52c8b4bbd714943b841fc9fb536f224f5e465e6cbc7ca196aedd5c25046bb4c8
+- filename: Day-03-practice/src/Components/TodoApp.jsx
+  checksum: 2de1fbb10c9fe4da67906e9ad50c8ba8a1cfb500bafe2ccd58b1ea9ede5352d7
 version: "1.0"

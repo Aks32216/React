@@ -270,3 +270,154 @@ button:focus-visible {
     transition: none;
   }
 }
+
+/* Todo */
+.todo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.todo-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #6d6f73;
+}
+
+.todo-form {
+  display: flex;
+  gap: 8px;
+}
+
+.todo-input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 14px;
+  font: inherit;
+  color: var(--case);
+  background: var(--tile);
+  border: 2px solid var(--case);
+  border-radius: 10px;
+}
+
+.todo-input:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 2px;
+}
+
+.todo-add,
+.todo-clear {
+  padding: 0 18px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+.todo-add {
+  color: #fff;
+  background: var(--orange);
+  border: none;
+  box-shadow: 0 4px 0 #a8330a;
+}
+
+.todo-add:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #a8330a;
+}
+
+.todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--tile);
+  border: 2px solid var(--case);
+  border-radius: 12px;
+  box-shadow: 0 3px 0 var(--case);
+}
+
+.todo-item.is-done {
+  box-shadow: 0 3px 0 var(--orange);
+}
+
+.todo-check {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--orange);
+  cursor: pointer;
+}
+
+.todo-name {
+  flex: 1;
+  overflow-wrap: anywhere;
+  color: var(--case);
+}
+
+.todo-item.is-done .todo-name {
+  color: var(--grey);
+  text-decoration: line-through;
+}
+
+.todo-delete {
+  padding: 6px 10px;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--grey);
+  background: none;
+  border: 2px solid var(--tile-dark);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.todo-delete:hover {
+  color: var(--orange);
+  border-color: var(--orange);
+}
+
+.todo-empty {
+  padding: 18px;
+  text-align: center;
+  color: var(--grey);
+  border: 2px dashed var(--tile-dark);
+  border-radius: 12px;
+}
+
+.todo-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 38px;
+}
+
+.todo-count {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6d6f73;
+}
+
+.todo-clear {
+  padding: 8px 14px;
+  font-size: 0.8rem;
+  color: var(--tile);
+  background: var(--case);
+  border: none;
+  box-shadow: 0 3px 0 #111;
+}
+
+.todo-clear:hover {
+  background: var(--orange);
+}

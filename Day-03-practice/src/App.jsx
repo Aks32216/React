@@ -1,6 +1,7 @@
 import Counter from "./Components/Counter";
 import FAQItem from "./Components/FAQItem";
 import React from 'react';
+import TodoApp from "./Components/TodoApp";
 
 const App = () => {
 
@@ -44,6 +45,7 @@ const App = () => {
           return <FAQItem key={faq.id} faq={faq} toggleQuestion={handleQuestionEnable}/>;
         })}
       </section>
+      <TodoApp />
     </main>
   );
 };
