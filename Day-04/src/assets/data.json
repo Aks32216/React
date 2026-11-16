@@ -1,0 +1,72 @@
+[
+  {
+    "id": "3e039cff-c7d2-44ff-abe2-da75d15f803b",
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "category": "Self-Help",
+    "format": "paperback",
+    "isOwned": true,
+    "notes": "Great chapter on habit stacking. Re-read before New Year.",
+    "status": "completed"
+  },
+  {
+    "id": "36458da7-486a-42fd-8e19-a1c3f4d6c675",
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "category": "Programming",
+    "format": "paperback",
+    "isOwned": true,
+    "notes": "Naming and small functions chapters are the best parts.",
+    "status": "completed"
+  },
+  {
+    "id": "2f67e296-24c3-4715-9354-2c0bd570919d",
+    "title": "The Pragmatic Programmer",
+    "author": "Andrew Hunt & David Thomas",
+    "category": "Programming",
+    "format": "ebook",
+    "isOwned": true,
+    "notes": "Tip: DRY, orthogonality, tracer bullets.",
+    "status": "in-progress"
+  },
+  {
+    "id": "53c93366-e483-4fbb-a1ee-f049d239ac00",
+    "title": "Dune",
+    "author": "Frank Herbert",
+    "category": "Sci-Fi",
+    "format": "paperback",
+    "isOwned": false,
+    "notes": "Borrow from a friend or buy the 50th anniversary edition.",
+    "status": "bought"
+  },
+  {
+    "id": "55418ab4-0baf-40f6-b42e-093057eb338b",
+    "title": "Sapiens",
+    "author": "Yuval Noah Harari",
+    "category": "History",
+    "format": "ebook",
+    "isOwned": true,
+    "notes": "Halfway through. The agricultural revolution part is wild.",
+    "status": "in-progress"
+  },
+  {
+    "id": "66fc5e82-d5a9-4105-acaa-06a2fe45271e",
+    "title": "The Psychology of Money",
+    "author": "Morgan Housel",
+    "category": "Finance",
+    "format": "ebook",
+    "isOwned": false,
+    "notes": "On the wishlist. Recommended for short, story-style lessons.",
+    "status": "bought"
+  },
+  {
+    "id": "33c330e6-e24b-40c7-a629-298895bc56fd",
+    "title": "Eloquent JavaScript",
+    "author": "Marijn Haverbeke",
+    "category": "Programming",
+    "format": "paperback",
+    "isOwned": false,
+    "notes": "Read online for free; consider buying the print edition.",
+    "status": "bought"
+  }
+]
