@@ -21,4 +21,10 @@ fileignoreconfig:
   checksum: 57024aa6d2217725a35a90ac6c1309f6c64101da904f1dc54e4cad66511cb796
 - filename: Day-04/src/Components/BookForm.jsx
   checksum: 8680da4569ebd2ec2548f2860dea993056f0c686f02beae7f82841cf75d2af7a
+- filename: Day-04-practice/package-lock.json
+  checksum: c8820b99c029c6d0a83a0598dbf196a57824f88732f17e7841534cb07a7e192c
+- filename: Day-04-practice/src/data/products.js
+  checksum: 750b098fc2036fdd1526fe9a846b6d9399a8feea8e647a21833dcd900e86bf96
+- filename: Day-04-practice/src/Components/ProductCatalog.jsx
+  checksum: e89e5206dfe1f18cc485109874b6763a58655b3baac365a19f6f4c9ab5f1351b
 version: "1.0"
