@@ -27,4 +27,12 @@ fileignoreconfig:
   checksum: 750b098fc2036fdd1526fe9a846b6d9399a8feea8e647a21833dcd900e86bf96
 - filename: Day-04-practice/src/Components/ProductCatalog.jsx
   checksum: e89e5206dfe1f18cc485109874b6763a58655b3baac365a19f6f4c9ab5f1351b
+- filename: Day-02/README.md
+  checksum: a659aeb5ebd049517f867e81999888528001b1ece756ee7dc0732b8c0f37bd08
+- filename: Day-03/README.md
+  checksum: f85ad4a029c3cfe4772814d10e34f8697daa8b949850698a3a8be9e981a50507
+- filename: Day-04/README.md
+  checksum: 0bd2508cfeb2cd226c7adb599aca5cb82e571a4a039b0fc3c02684832859f929
+- filename: Day-04-practice/README.md
+  checksum: b105718306f9fa9600784a1fadb1158098b79135d1e983ecb5f3c8001af99e59
 version: "1.0"

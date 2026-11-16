@@ -1,19 +1,14 @@
-# React + Vite
+# Day 02: Components, props and lists
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Day 02 UI](./screenshot.png)
 
-Currently, two official plugins are available:
+**UI:** pastel rounded cards on a cream background, with a navy navbar on top.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## What I learned
+- **Splitting the UI into components.** `NavBar` and `CardComponent` live in `src/Components/` and are imported into `App`.
+- **Props.** Data goes from parent to child as attributes: `<CardComponent title={...} description={...} />`. The child reads them from `props.title`.
+- **Props are read-only.** A child never changes its props. Data flows one way, downwards.
+- **`props.children`.** Whatever sits between a component's opening and closing tags arrives as `props.children`.
+- **Rendering lists with `.map()`.** An array of objects becomes an array of components.
+- **`key`.** Each item in a list needs a unique, stable `key` (here, `item.id`). React uses it to track items between renders. The array index is a poor key when the list can change.
+- **`{}` in JSX.** Curly braces run any JavaScript expression inside the markup.

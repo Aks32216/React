@@ -1,19 +1,16 @@
-# React + Vite
+# Day 03 practice: step counter, FAQ and todo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Day 03 practice UI](./screenshot.png)
 
-Currently, two official plugins are available:
+**UI:** a step counter with flip-clock digits and step-size chips, an FAQ accordion, and a todo list.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## What I learned
+- **Several pieces of state in one component.** `Counter` holds both `stepCount` and `stepIncrease`.
+- **Guarding state updates.** The decrement button returns `0` instead of going negative. It's also `disabled` when the count is 0.
+- **Rendering from an array.** `allowedSteps.map(...)` creates the chips, and `isActive` highlights the selected one.
+- **Accordion (only one open at a time).** The state is an array of FAQs. A click does `map` that flips the clicked item and sets every other item to `isEnabled: false`.
+- **Accessibility.** `aria-expanded` on the question button, and `aria-label` on icon-only buttons.
+- **Empty state.** `todos.length === 0 ? <p>List Empty</p> : <ul>...</ul>`.
+- **Derived state.** `completedTasks` is computed with `.filter()` during render.
+- **Conditional button.** "Clear Completed" only shows when `completedTasks > 0`.
+- **Immutable updates again.** `map` to toggle, `filter` to delete and to clear completed.

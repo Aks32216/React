@@ -1,19 +1,22 @@
-# React + Vite
+# Day 04: Forms, validation, modal and filters (The Reading Room)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Day 04 UI](./screenshot.png)
 
-Currently, two official plugins are available:
+**UI:** a library-style "Reading Room". Books sit on a shelf as cards with spines, and an "Add Book" popup holds a catalogue-card form.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## What I learned
+- **One state object for a whole form.** `values` holds every field. A single `handleChange` updates any of them with `[name]: value`.
+- **Every input type.**
+  - Text, `<select>` and `<textarea>` use `value`.
+  - Radio buttons use `checked={values.format === f}`.
+  - Checkboxes use `checked` and `e.target.checked`.
+- **Validation.** `validate()` returns an `errors` object. If it has any keys, the submit stops. Errors clear as the user edits that field. A regex with the `u` flag checks the author name.
+- **Resetting a form.** `setValues(EMPTY_BOOK)` after a successful add.
+- **Filtering and searching.** Two filters chained on `books`: category and title search. `visibleBooks` is derived from state and isn't stored.
+- **Empty state.** A message shows when nothing matches.
+- **Modal popup.** `isFormOpen` state decides whether the modal renders.
+  - Close it with the × button, an Escape key press, or a click on the backdrop.
+  - The backdrop check `e.target === e.currentTarget` makes sure clicks inside the card don't close it.
+- **`useEffect` with cleanup.** The Escape key listener is added only while the modal is open, and the returned function removes it.
+- **Importing JSON.** The starting data comes from `assets/data.json`.
+- **`data-*` attributes.** `data-category` and `data-status` let CSS style cards without extra class names.

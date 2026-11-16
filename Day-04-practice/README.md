@@ -1,19 +1,29 @@
-# React + Vite
+# Day 04 practice: Product catalog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Day 04 practice UI](./screenshot.png)
 
-Currently, two official plugins are available:
+**UI:** a clean Swiss-style storefront with a cool grey page, white cards and cobalt blue accents. It has a toggle for in-stock items, search, category and sort controls, and an Add Product popup.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## What I learned
+- **Data module.** 20 products in `data/products.js`, each with `id`, `name`, `category`, `price` and `inStock`.
+  - It's a `.js` file because JSON can't call `crypto.randomUUID()`.
+- **Lookup objects instead of long `if` chains.**
+  - `SORTING_ORDER` maps a key to a label for the dropdown.
+  - `SORT_FUNCTIONS` maps the same key to a compare function.
+  - A new sort needs one entry in each, and the `<select>` builds its options with `Object.entries(...)`.
+- **Never mutate state when sorting.** `[...products].sort(...)` copies first, because `.sort()` changes the array it's called on.
+- **Derived state.** `visibleProducts` is computed on every render from `products`, `query`, `category`, `order` and `isInStockEnabled`. It isn't stored in state, so it can't get out of sync.
+- **Combining filters.** Each `.filter()` has an "off" case that lets everything through, like `p.inStock || !isInstockEnabled`. The first draft `isInstockEnabled && p.inStock` hid every product when the filter was off.
+- **`useState` returns an array.** Use `[value, setValue]`, not `{ value, setValue }`.
+- **Boolean UI.**
+  - Showing a boolean: use a text badge ("In stock" / "Sold out"), not a disabled checkbox.
+  - Letting the user change it: use a checkbox or toggle. A toggle is a styled checkbox that still uses `e.target.checked`.
+- **Form validation.**
+  - `.some()` checks for duplicate names. It's `.some()`, not `findAny`.
+  - Compare trimmed, lowercase names.
+  - The price check uses `Number(price)`.
+  - Validation errors show under their own field.
+- **Passing props.** The form needs `products` for the duplicate check. Forgetting it gives `undefined.some` and crashes on submit.
+- **Modal.** `isModalOpen` state, backdrop click, Escape key through `useEffect` cleanup, and `stopPropagation()` on the card.
+- **Reset filters.** `handleSetDefaultFilters` must reset to a real key like `"DEFAULT"`, not the label "Default".
+- **Empty state.** "No products to show" with a Clear all filters button.

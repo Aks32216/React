@@ -1,19 +1,21 @@
-# React + Vite
+# Day 03: Hooks and `useState`
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Day 03 UI](./screenshot.png)
 
-Currently, two official plugins are available:
+**UI:** a neo-brutalist poster. It has a yellow dotted background, thick black outlines and hard offset shadows. It contains expandable "What is a hook / state" panels, a counter and a todo list.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## What I learned
+- **A hook** is a function whose name starts with `use`. Call hooks at the top level of a component, never inside loops or `if` blocks.
+- **Why a plain variable doesn't work.** Changing `let count` doesn't tell React anything, so the screen never updates.
+- **`useState`.** `const [count, setCount] = useState(0)` gives the current value and a setter. Calling the setter makes React re-render the component.
+- **Functional updates.** `setCount((c) => c + 1)` always receives the latest value, so it stays correct when updates are queued together.
+- **Toggle component.** Boolean state drives conditional rendering: `{isOpen && <div>...</div>}`.
+- **Todo app: the three immutable update patterns.**
+  - Add: `[...prev, newItem]`
+  - Update one item: `prev.map(t => t.id === id ? { ...t, isComplete: !t.isComplete } : t)`
+  - Delete: `prev.filter(t => t.id !== id)`
+  - Never mutate state directly.
+- **Controlled inputs.** `<input value={text} onChange={(e) => setText(e.target.value)} />`, with the text kept in state.
+- **Forms.** Use `onSubmit` with `e.preventDefault()`, then trim and validate the text.
+- **Lifting state up.** `TodoApp` owns the todos, and `TodoItem` and `TodoForm` call functions passed down as props (`onAdd`, `onToggle`, `onDelete`).
+- **Derived values.** "2 of 4 done" is calculated from `todos` each render and isn't stored in state.
