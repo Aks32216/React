@@ -1,0 +1,324 @@
+/* Day 05: dark desk with ID-badge cards. Near-black page, off-white badges, coral accent. */
+:root {
+  --bg: #0e1116;
+  --panel: #171b22;
+  --badge: #f4f1ea;
+  --ink: #14161b;
+  --soft: #8b93a1;
+  --line: #262c36;
+  --coral: #ff5a36;
+  --coral-dark: #e24422;
+  --mint: #19a974;
+
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  font-family: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  color: #e8eaee;
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 1px 1px, #1a1f27 1px, transparent 0) 0 0 / 22px 22px,
+    var(--bg);
+  min-height: 100vh;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+.desk {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 56px 24px 90px;
+}
+
+/* header */
+.desk__tag {
+  display: inline-block;
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--coral);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.desk__title {
+  margin-top: 16px;
+  font-size: clamp(42px, 8vw, 84px);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+
+.desk__title::after {
+  content: ".";
+  color: var(--coral);
+}
+
+.desk__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 26px;
+  padding: 8px 18px 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+  box-shadow: 0 10px 24px -14px rgba(0, 0, 0, 0.9);
+  color: var(--soft);
+  font-family: var(--mono);
+  font-size: 14px;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.dot--wait {
+  background: var(--coral);
+  animation: blink 1s ease-in-out infinite;
+}
+
+.dot--live {
+  background: var(--mint);
+  box-shadow: 0 0 0 4px rgba(25, 169, 116, 0.2);
+}
+
+@keyframes blink {
+  50% { opacity: 0.25; }
+}
+
+/* badge grid */
+.badges {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 28px 22px;
+  margin-top: 56px;
+}
+
+/* the ID badge */
+.badge {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 44px 18px 20px;
+  background: var(--badge);
+  color: var(--ink);
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 18px 30px -18px rgba(0, 0, 0, 0.8);
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.badge:nth-child(3n + 1) { --tilt: -1.2deg; }
+.badge:nth-child(3n + 2) { --tilt: 0.8deg; }
+.badge:nth-child(3n)     { --tilt: -0.5deg; }
+
+.badge:hover {
+  transform: rotate(0deg) translateY(-8px);
+  box-shadow: 0 28px 40px -18px rgba(255, 90, 54, 0.45);
+}
+
+/* lanyard slot */
+.badge__slot {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  width: 54px;
+  height: 10px;
+  margin-left: -27px;
+  border-radius: 999px;
+  background: var(--bg);
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.badge__avatar {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--line);
+  border: 4px solid var(--badge);
+  outline: 3px solid var(--coral);
+}
+
+.badge__name {
+  max-width: 100%;
+  margin-top: 16px;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+
+.badge__tags {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.badge__type,
+.badge__admin {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.badge__type {
+  background: var(--ink);
+  color: var(--badge);
+}
+
+.badge__admin {
+  background: var(--mint);
+  color: #fff;
+}
+
+.badge__id {
+  margin-top: 14px;
+  padding-top: 12px;
+  width: 100%;
+  border-top: 2px dashed #cfc9bb;
+  color: #6b6759;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.badge__link {
+  margin-top: 14px;
+  padding: 9px 16px;
+  border-radius: 10px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.badge__link:hover {
+  background: var(--coral);
+}
+
+/* loading placeholders (shown while there are no users yet) */
+.badge--ghost {
+  min-height: 300px;
+}
+
+.ghost {
+  border-radius: 10px;
+  background: linear-gradient(90deg, #e6e2d8 25%, #f4f1ea 50%, #e6e2d8 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+
+.ghost--avatar { width: 112px; height: 112px; border-radius: 50%; }
+.ghost--line   { width: 70%; height: 20px; margin-top: 18px; }
+.ghost--tag    { width: 40%; height: 18px; margin-top: 12px; border-radius: 999px; }
+.ghost--btn    { width: 60%; height: 36px; margin-top: 44px; }
+
+@keyframes shimmer {
+  to { background-position: -200% 0; }
+}
+
+/* number box inside the status pill */
+.desk__input {
+  width: 64px;
+  height: 34px;
+  padding: 0 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.desk__input:hover {
+  border-color: #3a424f;
+}
+
+.desk__input:focus {
+  border-color: var(--coral);
+  box-shadow: 0 0 0 3px rgba(255, 90, 54, 0.25);
+}
+
+/* clock widget: top-right of the page, lined up with the content column */
+.clock {
+  position: absolute;
+  top: 56px;
+  right: max(24px, calc((100vw - 1120px) / 2 + 24px));
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  padding: 14px 20px 14px 18px;
+  border: 1px solid var(--line);
+  border-right: 4px solid var(--coral);
+  border-radius: 14px;
+  background: var(--panel);
+  box-shadow: 0 18px 36px -16px rgba(0, 0, 0, 0.9);
+}
+
+.clock__label {
+  color: var(--coral);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.clock__time {
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.clock__date {
+  color: var(--soft);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+@media (max-width: 640px) {
+  .clock {
+    top: 14px;
+    right: 14px;
+    padding: 8px 12px;
+  }
+  .clock__time {
+    font-size: 20px;
+  }
+  .clock__date {
+    display: none;
+  }
+}

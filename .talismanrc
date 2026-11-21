@@ -35,4 +35,8 @@ fileignoreconfig:
   checksum: 0bd2508cfeb2cd226c7adb599aca5cb82e571a4a039b0fc3c02684832859f929
 - filename: Day-04-practice/README.md
   checksum: b105718306f9fa9600784a1fadb1158098b79135d1e983ecb5f3c8001af99e59
+- filename: Day-05/package-lock.json
+  checksum: a304735fd4bd41363add79d1ef803f38be8eaa168171f4c169144b0831adb66a
+- filename: Day-05/src/Components/GitHub.jsx
+  checksum: 138fb3ceb8cac02ea6a8d568872339d391ce880be8c04e0df810054c4d07198b
 version: "1.0"
