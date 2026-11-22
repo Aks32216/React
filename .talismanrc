@@ -50,4 +50,6 @@ fileignoreconfig:
   checksum: 1e2a080d4f54220c4314aa6a4a1bcca55b4cf8555edbb02f91590b6dd18f222a
 - filename: Day-05-practic3e/README.md
   checksum: 521876df55f2a2e1974463d6b0a934a8625349348edf3f2b682add1e59f3df29
+- filename: README.md
+  checksum: 9096146e880758b7bce4743cc85cbf1fe1190ef6e11cf81695b1b122707e0b60
   version: "1.0"
