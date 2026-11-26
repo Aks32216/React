@@ -52,4 +52,6 @@ fileignoreconfig:
   checksum: 521876df55f2a2e1974463d6b0a934a8625349348edf3f2b682add1e59f3df29
 - filename: README.md
   checksum: 9096146e880758b7bce4743cc85cbf1fe1190ef6e11cf81695b1b122707e0b60
+- filename: Day-06/package-lock.json
+  checksum: 233ca4fc996c22132a937c997aab5e1692af643d28783019d3e60bae0d5cb96c
   version: "1.0"
